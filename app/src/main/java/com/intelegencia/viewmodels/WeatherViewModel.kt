@@ -68,7 +68,6 @@ class WeatherViewModel @Inject constructor(
         weatherRepository.getWeatherFromRemote(latitude, longitude)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
-            .debounce(2, TimeUnit.HOURS)
             .subscribe(disposableObserverRemote)
     }
 
